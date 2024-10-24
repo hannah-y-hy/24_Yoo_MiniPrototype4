@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GoalScript : MonoBehaviour
 {
-    //True or false setting for this bool: checkbox on the inspector panel
+    //How to set true or false for this bool: checkbox on the inspector panel
     public bool isLeftGoal;
 
     private void OnTriggerEnter2D(Collider2D collision)

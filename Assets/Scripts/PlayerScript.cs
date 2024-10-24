@@ -32,7 +32,7 @@ public class PlayerScript : MonoBehaviour
         }
 
     }
-    // FixedUpdate는 물리 계산에 적합 / Just learned that FixedUpdate is ideal for physics calculations
+    // FixedUpdate는 물리 계산에 적합 / Just learned that FixedUpdate is ideal for physics calculations so decided use that thing
     void FixedUpdate()
     {
         // AddForce를 사용하여 플레이어에게 힘을 가함 / Applying force to the player using AddForce

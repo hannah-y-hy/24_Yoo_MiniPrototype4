@@ -5,12 +5,12 @@ public class BallScript : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Vector2 StartPosition;
-    public Animator ani; // 애니메이터 추가
+    public Animator ani; // 애니메이터 추가 / this is animator
 
     public Sprite OriginalSprite; // 초기 스프라이트 / Original sprite
     public Vector2 OriginalScale; // 초기 크기 / Original scale
     
-    private int score; // 득점 관리
+    private int score; // 득점 관리 / managing score addings
 
     // Start is called before the first frame update
     void Start()

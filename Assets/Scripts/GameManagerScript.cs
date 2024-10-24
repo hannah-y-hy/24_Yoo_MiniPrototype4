@@ -23,6 +23,7 @@ public class GameManagerScript : MonoBehaviour
     
     private bool EventTriggered = false; // 특수 이벤트 발생 여부 / Whether the special event has triggered
     private GameObject EventPlayer; // 이벤트가 발생 중인 플레이어 / The player triggering the event
+                                                            //* this player gets priority if the appearance swappping event is about to happen to both left & right players 
 
     public void LeftScored()
     {
@@ -60,11 +61,12 @@ public class GameManagerScript : MonoBehaviour
         {
             EventTriggered = true;
             EventPlayer = player; // 이벤트 발생 플레이어 지정 / Set the player triggering the event
-            SwapBallAndPaddle(player); // 공과 패들 교체 / Swap ball and paddle
+            SwapBallAndPaddle(player); // 공과 패들 교체 / Swap appearance between ball and paddle
         }
         else if (playerScore % 3 != 0 && EventTriggered && EventPlayer == player)
         {
-            // 플레이어가 이벤트 범위를 벗어나면 이벤트 종료 / End event when player score is no longer a multiple of 3
+            // 플레이어가 이벤트 범위를 벗어나면 이벤트 종료 / End event when player score is no longer a range of event trigger
+            //* I might wanna go through UX flowchart page 2 for clarification
             ResetBallAndPaddle(player); 
             EventTriggered = false;
             EventPlayer = null; // 이벤트 플레이어 초기화 / Reset event player
@@ -84,7 +86,7 @@ public class GameManagerScript : MonoBehaviour
         Sprite paddleSprite = player.GetComponent<SpriteRenderer>().sprite;
         Vector2 paddleScale = player.transform.localScale;
 
-        // 스프라이트 및 크기 교체 / Swap sprites and size
+        // 스프라이트 및 크기 교체 / Swap sprites' and size (ball gameobject and left/right paddle)
         Ball.GetComponent<SpriteRenderer>().sprite = paddleSprite;
         Ball.transform.localScale = paddleScale;
 
@@ -121,7 +123,7 @@ public class GameManagerScript : MonoBehaviour
 //Starting over: this is a game reset function 
     public void ResetPosition()
     {
-        Debug.Log("Resetting ball and paddles");  // 디버깅 메시지
+        Debug.Log("Resetting ball and paddles");  // 디버깅 메시지 / Debug message about resetting position of the moving gameobjects
         Ball.GetComponent<BallScript>().Reset();
         LeftPaddle.GetComponent<PlayerScript>().Reset();
         RightPaddle.GetComponent<PlayerScript>().Reset();

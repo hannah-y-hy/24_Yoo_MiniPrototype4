@@ -11,3 +11,4 @@ public class BoundaryScript : MonoBehaviour
         }
     }
 }
+//This short script is for 2 transparent rectangle gameobjects(=Boundary gameobjectss) that are located on both sides of the screen
