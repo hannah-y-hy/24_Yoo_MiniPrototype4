@@ -31,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
         LeftText.GetComponent<TextMeshProUGUI>().text = LeftScore.ToString();
         Ball.GetComponent<BallScript>().AddScore(); // It changes appearance and animation of the ball gameobject
         
-        // 3점마다 특수 이벤트를 체크 / Trigger special event every 3 points
+        // 3점마다 특수 이벤트를 체크 / Checking the planned event every 3 points
         CheckForSpecialEvent(LeftPaddle);
     }
 
@@ -41,7 +41,7 @@ public class GameManagerScript : MonoBehaviour
         RightText.GetComponent<TextMeshProUGUI>().text = RightScore.ToString();
         Ball.GetComponent<BallScript>().AddScore(); // It changes appearance and animation of the ball gameobject
 
-        // 3점마다 특수 이벤트를 체크 / Trigger special event every 3 points
+        // 3점마다 특수 이벤트를 체크 / Checking the planned event every 3 points
         CheckForSpecialEvent(RightPaddle);
     }
 

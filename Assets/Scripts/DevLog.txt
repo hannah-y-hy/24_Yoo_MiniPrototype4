@@ -177,4 +177,7 @@ Current task:a bit more struggling with movement modifications
 Still didn't really liked the movement of the ball gameobject so trying to adjust some stuff on BallScript
     * Problem specifications: There seems to be a decrese of bouncing force when the ball gameobject is reflected by the paddle 
                               right now: trying to make "  if (collision.gameObject.CompareTag("Player"))" thing work properly
+                              ... but it seems like there's nothing wrong with the script so I'm just tweaking physics materials right now
+Doubled bounciness of the bounce material and testplayed: just realized that it's too much
+current bounciness == 1.5 : the movement looks way better than before but I might wanna do some more testplays later just to make sure this amount of bounciness is right for the players
 
