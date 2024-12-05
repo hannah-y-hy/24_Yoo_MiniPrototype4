@@ -5,25 +5,15 @@ public class BallScript : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     public Vector2 StartPosition;
-    public Animator ani; // 애니메이터 추가 / this is animator
-
-    public Sprite OriginalSprite; // 초기 스프라이트 / Original sprite
-    public Vector2 OriginalScale; // 초기 크기 / Original scale
-    
-    private int score; // 득점 관리 / managing score addings
 
     // Start is called before the first frame update
     void Start()
     {
-       // 초기 스프라이트 및 크기 저장 / Save the original sprite and scale
-        OriginalSprite = GetComponent<SpriteRenderer>().sprite;
-        OriginalScale = transform.localScale;
-
         StartPosition = transform.position;
         Launch();
     }
 
-    //Starting over: this is a game reset function
+    // Starting over: this is a game reset function
     public void Reset()
     {
         Debug.Log("Ball is resetting...");  // 디버깅 메시지 추가
@@ -56,25 +46,6 @@ public class BallScript : MonoBehaviour
             // 수평 속도를 유지하면서 수직 속도를 반사 각도에 따라 조정 / Adjust vertical velocity while keeping horizontal velocity
             Vector2 newVelocity = new Vector2(rb.velocity.x, reflectAngle * speed);
             rb.velocity = newVelocity.normalized * speed;
-        }
-    }
-
-    public void AddScore() // This method is called when getting score in order to change appearance and animation of the ball gameobject
-    {
-        score++;
-
-        if (score == 1)
-        {
-            ani.SetTrigger("Chicken"); //Changes to chicken
-        }
-        else if (score == 2)
-        {
-            ani.SetTrigger("Cow"); //Changes to cow
-        }
-        else if (score >= 3)
-        {
-            score = 0; // If the score is 3 or higher, the sprite resets back to the hamster
-            ani.SetTrigger("HamsterFront"); //Changes to Hamster
         }
     }
 

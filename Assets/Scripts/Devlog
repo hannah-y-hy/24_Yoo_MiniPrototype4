@@ -1,0 +1,43 @@
+Final Prototype plan for 11/21, In-class discussion time
+
+<Summary>
+Making Prototype 4 into a 2 player an arcade machine two joysticks
+* Initial prototype 4 had a method that certain score triggering in-game events(e.g. player gameobject transforming in every 3 points) but that seemed to make some confusion for players so I'm thinking of making another player-related event instead
+
+<Things I have to do>
+1. simplifying gameplay by reducing/deleting existing in-game events
+2. random joystick control switching method between 2 players
+    e.g.:player 1 normally uses joystick 1 and player 2 uses joystick 2,
+        but during specific times, the players' controls will swap randomly so that they could inturrupt each other for real, sitting in front of the arcade machine 
+3. making a 30-sec timer popping up when the joystick switching starts
+
+<Classes and method Variables>
+1. GameManager
+->Just adding some method related to joystick switching
+    bool isControlSwitched: if control switch is active, do something (e.g.: timer popping up...)
+    float controlSwitchDuration: Duration of control switch
+    float controlSwitchCooldown: Cooldown time before switching controls again.
+
+2. JoystickSwitchManager 
+: related to joystic switching 
+    void TriggerControlSwitch(): Makes joystick swapping happen
+    void ResetControlSwitch(): Resets control to original state after duration.
+
+<PsudoCode for player appearance(or paddle size) changing
+If player presses joystick button 1, pingpong paddle gameobject changes its appearance to version 2
+    -> find prefab with "Paddle Appearance" tag in list
+Pressing again: changing into appearance version 3
+    ->and then 30-sec cool time starts: this limitaion is for avoiding the player making too much transformation
+
+
+<UX designing tips>
+1. player goal: what do they think their goal is?
+2. Design goal: what does the player see?
+3. emotional beat
+    -> Write every 1 row for every events/happening/changes
+
+
+<Things that I might wanna try / some ideas>
+if the player touches diagnal control, paddle movement becomes slower: this could make players to be really careful, like really playing a pingpong game
+...or paddles wobbling?
+Unity Docs about keyboard & joystick input: https://docs.unity3d.com/6000.0/Documentation/Manual/class-InputManager.html
