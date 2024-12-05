@@ -9,9 +9,6 @@ public class PlayerScript : MonoBehaviour
     public Rigidbody2D rb;
     public Vector2 StartPosition;
 
-    public Sprite OriginalSprite; // 초기 스프라이트 / Original sprite
-    public Vector2 OriginalScale; // 초기 크기 / Original scale
-    
     private float movement;
 
     void Start()
@@ -30,8 +27,8 @@ public class PlayerScript : MonoBehaviour
         {
             movement = Input.GetAxisRaw("Vertical2");
         }
-
     }
+
     // FixedUpdate는 물리 계산에 적합 / Just learned that FixedUpdate is ideal for physics calculations so decided use that thing
     void FixedUpdate()
     {
@@ -48,7 +45,8 @@ public class PlayerScript : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, -speed);
         }
     }
-    //Starting over: this is a game reset function 
+
+    // Starting over: this is a game reset function
     public void Reset()
     {
         rb.velocity = Vector2.zero;

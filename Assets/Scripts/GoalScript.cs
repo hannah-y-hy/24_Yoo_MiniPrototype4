@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GoalScript : MonoBehaviour
 {
-    //How to set true or false for this bool: checkbox on the inspector panel
     public bool isLeftGoal;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -22,10 +21,7 @@ public class GoalScript : MonoBehaviour
                 GameObject.Find("GameManager").GetComponent<GameManagerScript>().LeftScored();
             }
 
-        // 득점 후 공을 리셋 / Resetting the position of the ball gameobject
-        collision.gameObject.GetComponent<BallScript>().Reset();
+            collision.gameObject.GetComponent<BallScript>().Reset();
         }
     }
-
 }
-
