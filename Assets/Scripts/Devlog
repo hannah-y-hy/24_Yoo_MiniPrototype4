@@ -1,4 +1,5 @@
-Final Prototype plan for 11/21, In-class discussion time
+Last Prototype plan
+*Wrote right after in-class discussion time
 
 <Summary>
 Making Prototype 4 into a 2 player an arcade machine two joysticks
@@ -9,12 +10,11 @@ Making Prototype 4 into a 2 player an arcade machine two joysticks
 2. random joystick control switching method between 2 players
     e.g.:player 1 normally uses joystick 1 and player 2 uses joystick 2,
         but during specific times, the players' controls will swap randomly so that they could inturrupt each other for real, sitting in front of the arcade machine 
-3. making a 30-sec timer popping up when the joystick switching starts
 
 <Classes and method Variables>
 1. GameManager
 ->Just adding some method related to joystick switching
-    bool isControlSwitched: if control switch is active, do something (e.g.: timer popping up...)
+    bool isControlSwitched: if control switch is active, do something
     float controlSwitchDuration: Duration of control switch
     float controlSwitchCooldown: Cooldown time before switching controls again.
 
