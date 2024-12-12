@@ -19,31 +19,25 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 플레이어 구분에 따른 입력 처리 / Handle input based on player side
         if (isLeftPlayer)
         {
-            movement = Input.GetAxisRaw("Vertical");
+            movement = Input.GetAxisRaw("Vertical") + Input.GetAxis("joystick_1_Y");
         }
         else
         {
-            movement = Input.GetAxisRaw("Vertical2");
+            movement = Input.GetAxisRaw("Vertical2") + Input.GetAxis("joystick_2_Y");
         }
     }
 
-    // FixedUpdate는 물리 계산에 적합 / Just learned that FixedUpdate is ideal for physics calculations so decided use that thing
+    // FixedUpdate는 물리 계산에 적합 / Ideal for physics calculations
     void FixedUpdate()
     {
-        // AddForce를 사용하여 플레이어에게 힘을 가함 / Applying force to the player using AddForce
+        // AddForce를 사용하여 플레이어에게 힘을 가함 / Applying force to the player
         rb.AddForce(new Vector2(0, movement * speed), ForceMode2D.Force);
 
-        // 최대 속도 제한 / Limiting the max speed
-        if (rb.velocity.y > speed)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, speed);
-        }
-        else if (rb.velocity.y < -speed)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, -speed);
-        }
+        // 속도 제한을 위해 Clamp 사용 / Limiting velocity using Clamp
+        rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -speed, speed));
     }
 
     // Starting over: this is a game reset function
